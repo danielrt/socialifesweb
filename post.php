@@ -72,13 +72,14 @@ if (autenticar($db_con)) {
         }
 
         // Prepara a consulta SQL com placeholders para evitar SQL Injection
-        $consulta = $db_con->prepare("INSERT INTO post(descricao, img, usuarios_login) 
-                                      VALUES(:descricao, :img_url, :login)");
+        $consulta = $db_con->prepare("INSERT INTO post(texto, imagem, data_hora, usuarios_login) 
+                                      VALUES(:descricao, :img_url, :date, :login)");
 
         // Vincula os parâmetros de forma segura
         $consulta->bindParam(':descricao', $texto, PDO::PARAM_STR);
         $consulta->bindParam(':img_url', $img_url, PDO::PARAM_STR);
         $consulta->bindParam(':login', $login, PDO::PARAM_STR);
+        $consulta->bindParam(':date', $date, PDO::PARAM_STR);
 
         // Executa a consulta de inserção
         if ($consulta->execute()) {
