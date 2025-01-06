@@ -32,8 +32,8 @@ function autenticar($db_con) {
 	
 	// Quando dentro de uma função, para acessar variáveis globais no php é
 	// necessário acessá-las via $GLOBALS.
-	$login = trim($GLOBALS['login']);
-	$senha = trim($GLOBALS['senha']);
+	$login = trim($GLOBALS['login'] ?? '');
+	$senha = trim($GLOBALS['senha'] ?? '');
 	//$db_con = $GLOBALS['db_con'];
 	
 	// Verifica antes se o parâmetro de login foi enviado ao servidor
