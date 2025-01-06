@@ -72,7 +72,7 @@ if (autenticar($db_con)) {
         }
 
         // Prepara a consulta SQL com placeholders para evitar SQL Injection
-        $consulta = $db_con->prepare("INSERT INTO post(texto, imagem, data_hora, usuarios_login) 
+        $consulta = $db_con->prepare("INSERT INTO post(texto, imagem, data_hora, usuario_login) 
                                       VALUES(:descricao, :img_url, :date, :login)");
 
         // Vincula os parâmetros de forma segura
