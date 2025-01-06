@@ -21,15 +21,6 @@ if (isset($_POST['login'], $_POST['senha'], $_POST['nome'], $_POST['cidade'], $_
     $data_nascimento = trim($_POST['data_nascimento']);
     $foto = $_FILES['foto'];
 
-    // Validação de dados
-    if (!filter_var($login, FILTER_VALIDATE_EMAIL)) {
-        $resposta["sucesso"] = 0;
-        $resposta["erro"] = "Login deve ser um email válido";
-        $resposta["cod_erro"] = 3;
-        echo json_encode($resposta);
-        exit();
-    }
-
     if (strlen($senha) < 6) {
         $resposta["sucesso"] = 0;
         $resposta["erro"] = "Senha deve ter pelo menos 6 caracteres";
